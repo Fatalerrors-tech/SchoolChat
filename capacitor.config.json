@@ -1,0 +1,10 @@
+
+{
+  "appId": "com.ChatOnline.app",
+  "appName": "ChatOnline",
+  "webDir": "public",
+  "server": {
+    "url": "https://YOUR-RENDER-SERVICE.onrender.com",
+    "cleartext": false
+  }
+}
