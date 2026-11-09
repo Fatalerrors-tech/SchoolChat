@@ -15,6 +15,7 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
+app.set("trust proxy", 1);
 const server = http.createServer(app);
 const io = new Server(server);
 
@@ -316,7 +317,7 @@ const upload = multer({
     }
   }),
   limits: {
-    fileSize: 2 * 1024 * 1024
+    fileSize: 5 * 1024 * 1024
   },
   fileFilter: (_req, file, callback) => {
     const allowed = [
