@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldChat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN SCREEN -->
+
+    <div id="authScreen" class="auth-screen">
+
+        <div class="auth-card">
+
+            <div class="logo">✦ChatOnline</div>
+
+            <h1 id="authTitle">Welcome back</h1>
+
+            <p id="authSubtitle">
+                Log in to join the worldwide conversation.
+            </p>
+
+            <form id="authForm">
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    minlength="8"
+                    required
+                >
+
+                <p id="authError" class="error"></p>
+
+                <button type="submit" id="authSubmit">
+                    Log In
+                </button>
+
+            </form>
+
+            <p class="switch-line">
+                <span id="switchText">New here?</span>
+
+                <button id="switchMode" type="button">
+                    Create an account
+                </button>
+            </p>
+
+            <form id="twoFactorForm" class="hidden">
+
+                <h2>Developer verification</h2>
+
+                <p>
+                    Enter the six-digit code sent to the developer email.
+                </p>
+
+                <input
+                    id="twoFactorCode"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="Verification code"
+                    required
+                >
+
+                <p id="twoFactorError" class="error"></p>
+
+                <button type="submit">
+                    Verify
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHATROOM -->
+
+    <div id="chatScreen" class="hidden">
+
+        <header class="topbar">
+
+            <div class="logo">✦ WorldChat</div>
+
+            <div class="header-right">
+                <span id="connectionStatus">Connecting...</span>
+                <button id="logoutButton">Log out</button>
+            </div>
+
+        </header>
+
+
+        <div class="chat-container">
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <h3>YOUR PROFILE</h3>
+
+                <div class="profile">
+
+                    <img
+                        id="myAvatar"
+                        src="default-avatar.svg"
+                        alt="Profile picture"
+                    >
+
+                    <div>
+                        <strong id="myUsername"></strong>
+                        <p>Online</p>
+                    </div>
+
+                </div>
+
+                <label for="avatarInput" class="avatar-button">
+                    Change profile picture
+                </label>
+
+                <input
+                    type="file"
+                    id="avatarInput"
+                    accept="image/png,image/jpeg,image/webp,image/gif"
+                    hidden
+                >
+
+                <hr>
+
+                <h3>CHANNELS</h3>
+
+                <div class="channel">
+                    🌐 # global-chat
+                </div>
+
+                <p class="sidebar-description">
+                    Welcome to the worldwide public chatroom!
+                </p>
+
+            </aside>
+
+
+            <!-- MAIN CHAT -->
+
+            <main class="chat">
+
+                <div class="chat-header">
+
+                    <div>
+                        <h2># global-chat</h2>
+                        <p>Talk to people around the world.</p>
+                    </div>
+
+                    <span class="public-label">
+                        PUBLIC
+                    </span>
+
+                </div>
+
+
+                <!-- MESSAGES -->
+
+                <div id="messages" class="messages">
+
+                    <div class="welcome-message">
+                        <h2>Welcome to WorldChat! 🌎</h2>
+                        <p>Be the first to say hello.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGE COMPOSER -->
+
+                <form id="messageForm" class="message-form">
+
+                    <div class="composer-tools">
+
+                        <button
+                            type="button"
+                            id="gifButton"
+                        >
+                            GIF
+                        </button>
+
+                        <span>
+                            Messages are visible to everyone.
+                        </span>
+
+                    </div>
+
+                    <div class="message-input-container">
+
+                        <textarea
+                            id="messageInput"
+                            placeholder="Message #global-chat..."
+                            maxlength="1000"
+                            rows="1"
+                        ></textarea>
+
+                        <button type="submit" id="sendButton">
+                            ➤
+                        </button>
+
+                    </div>
+
+
+                    <!-- TENOR GIF PICKER -->
+
+                    <div id="gifPicker" class="gif-picker hidden">
+
+                        <input
+                            type="text"
+                            id="gifSearch"
+                            placeholder="Search Tenor GIFs..."
+                        >
+
+                        <div id="gifResults" class="gif-results"></div>
+
+                    </div>
+
+                </form>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        ChatOnline © 2026 · A worldwide public chatroom
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
