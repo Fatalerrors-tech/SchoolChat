@@ -1,0 +1,21 @@
+
+{
+  "name": "ChatOnline",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1",
+    "express-session": "^1.18.1",
+    "connect-sqlite3": "^0.9.15",
+    "better-sqlite3": "^11.8.1",
+    "bcryptjs": "^2.4.3",
+    "helmet": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.10.0",
+    "express-rate-limit": "^7.5.0"
+  }
+}
